@@ -10,7 +10,7 @@ sub print {
     my $self = shift;
 
     my $fname = $self->_gen_filename();
-    if ($self->{auto_make_dir}) {
+    if (*$self->{auto_make_dir}) {
         Path::Class::file($fname)->parent->mkpath();
     }
     my $fh;
@@ -28,13 +28,13 @@ sub print {
             my $saver = SelectSaver->new($fh);
             $|=1;
         }
-        if ($self->{symlink} && -e $self->{symlink}) {
-            unless (readlink($self->{symlink}) eq $fname) {
-                unlink $self->{symlink};
-                symlink $fname, $self->{symlink} or die $!;
+        if (*$self->{symlink} && -e *$self->{symlink}) {
+            unless (readlink(*$self->{symlink}) eq $fname) {
+                unlink *$self->{symlink};
+                symlink $fname, *$self->{symlink} or die $!;
             }
         } elsif ($self->{symlink}) {
-            symlink $fname, $self->{symlink} or die $!;
+            symlink $fname, *$self->{symlink} or die $!;
         }
     }
     syswrite($fh, (join '', @_))
