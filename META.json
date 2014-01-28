@@ -54,5 +54,16 @@
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/kan/p5-file-stamped-syswrite/issues"
+      },
+      "homepage" : "https://github.com/kan/p5-file-stamped-syswrite",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/kan/p5-file-stamped-syswrite.git",
+         "web" : "https://github.com/kan/p5-file-stamped-syswrite"
+      }
+   },
    "version" : "0.01"
 }

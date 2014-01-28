@@ -10,19 +10,13 @@ File::Stamped::syswrite - time stamped log file, use syswrite
 
 # SEE ALSO
 
-[File::Stamped](https://metacpan.org/pod/File::Stamped), [https://redmine.fout.jp/issues/8769](https://redmine.fout.jp/issues/8769)
+[File::Stamped](https://metacpan.org/pod/File::Stamped)
 
 # AUTHOR
  
 
 Kan Fushihara <kan.fushihara@gmail.com>
   
-
-# SEE ALSO
- 
-
-    L<File::Stamped>
-     
 
 # LICENSE
  

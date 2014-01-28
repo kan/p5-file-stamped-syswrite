@@ -60,10 +60,6 @@ L<File::Stamped>
  
 Kan Fushihara E<lt>kan.fushihara@gmail.comE<gt>
   
-=head1 SEE ALSO
- 
- L<File::Stamped>
-  
 =head1 LICENSE
  
 Copyright (C) Kan Fushihara
