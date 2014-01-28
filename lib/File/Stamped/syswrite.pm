@@ -33,7 +33,7 @@ sub print {
                 unlink *$self->{symlink};
                 symlink $fname, *$self->{symlink} or die $!;
             }
-        } elsif ($self->{symlink}) {
+        } elsif (*$self->{symlink}) {
             symlink $fname, *$self->{symlink} or die $!;
         }
     }
