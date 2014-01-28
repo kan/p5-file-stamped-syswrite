@@ -4,10 +4,15 @@ use warnings;
 use parent 'File::Stamped';
 our $VERSION = '0.01';
 
+use Path::Class ();
+
 sub print {
     my $self = shift;
 
     my $fname = $self->_gen_filename();
+    if ($self->{auto_make_dir}) {
+        Path::Class::file($fname)->parent->mkpath();
+    }
     my $fh;
     if (*$self->{fh}) {
         if ($fname eq *$self->{fname} && *$self->{pid}==$$) {
@@ -22,6 +27,14 @@ sub print {
         if (*$self->{autoflush}) {
             my $saver = SelectSaver->new($fh);
             $|=1;
+        }
+        if ($self->{symlink} && -e $self->{symlink}) {
+            unless (readlink($self->{symlink}) eq $fname) {
+                unlink $self->{symlink};
+                symlink $fname, $self->{symlink} or die $!;
+            }
+        } elsif ($self->{symlink}) {
+            symlink $fname, $self->{symlink} or die $!;
         }
     }
     syswrite($fh, (join '', @_))

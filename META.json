@@ -44,6 +44,7 @@
       "runtime" : {
          "requires" : {
             "File::Stamped" : "0.03",
+            "Path::Class" : "0.33",
             "perl" : "5.008001"
          }
       },
